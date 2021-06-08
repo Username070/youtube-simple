@@ -1,5 +1,10 @@
 const fetch = require("node-fetch");
 
+let availableParameters = ["maxResults", "hl", "id", "pageToken", "textFormat", "order", "searchTerms",
+"videoId", "forChannelId", "maxHeight", "maxWidth", "regionCode", "videoCategoryId", "q",
+"publishedAfter", "publishedBefore", "videoDuration", "channelId", "channelType",
+"eventType", "videoSyndicated", "videoType"]
+
 class YouTubeAPI
 {
     constructor(apiKey)
@@ -415,106 +420,16 @@ class YouTubeAPI
         return (fetch(url).then((res) => res.json()));
     }
 
-
-
-
-
-
     generateLink(url, maxResults, hl, id, pageToken, textFormat, order, searchTerms,
         videoId, forChannelId, maxHeight, maxWidth, regionCode, videoCategoryId, q, publishedAfter, publishedBefore,
         videoDuration, channelId, channelType, eventType, videoSyndicated, videoType)
     {
-        if (maxResults !== "" && maxResults != undefined)
+        for (let i = 1; i <= 21; i++)
         {
-            url += `&maxResults=${maxResults}`;
-        }
-        if (hl !== "" && hl != undefined)
-        {
-            url += `&hl=${hl}`;
-        }
-        if (id !== "" && id != undefined)
-        {
-            url += `&id=${id}`;
-        }
-        if (maxResults !== "" && maxResults != undefined)
-        {
-            url += `&maxResults=${maxResults}`;
-        }
-        if (pageToken !== "" && pageToken != undefined)
-        {
-            url += `&pageToken=${pageToken}`;
-        }
-        if (textFormat !== "" && textFormat != undefined)
-        {
-            url += `&textFormat=${textFormat}`;
-        }
-        if (order !== "" && order != undefined)
-        {
-            url += `&order=${order}`;
-        }
-        if (searchTerms !== "" && searchTerms != undefined)
-        {
-            url += `&searchTerms=${searchTerms}`;
-        }
-        if (videoId !== "" && videoId != undefined)
-        {
-            url += `&videoId=${videoId}`;
-        }
-        if (forChannelId !== "" && forChannelId != undefined)
-        {
-            url += `&forChannelId=${forChannelId}`;
-        }
-        if (maxHeight !== "" && maxHeight != undefined)
-        {
-            url += `&maxHeight=${maxHeight}`;
-        }
-        if (maxWidth !== "" && maxWidth != undefined)
-        {
-            url += `&maxWidth=${maxWidth}`;
-        }
-        if (regionCode !== "" && regionCode != undefined)
-        {
-            url += `&regionCode=${regionCode}`;
-        }
-        if (videoCategoryId !== "" && videoCategoryId != undefined)
-        {
-            url += `&videoCategoryId=${videoCategoryId}`;
-        }
-        if (q !== "" && q != undefined)
-        {
-            url += `&q=${q}`;
-        }
-        if (publishedAfter !== "" && publishedAfter != undefined)
-        {
-            url += `&publishedAfter=${publishedAfter}`;
-        }
-        if (publishedBefore !== "" && publishedBefore != undefined)
-        {
-            url += `&publishedBefore=${publishedBefore}`;
-        }
-        if (videoDuration !== "" && videoDuration != undefined)
-        {
-            url += `&videoDuration=${videoDuration}`;
-        }
-        if (channelId !== "" && channelId != undefined)
-        {
-            url += `&channelId=${channelId}`;
-        }
-        if (channelType !== "" && channelType != undefined)
-        {
-            url += `&channelType=${channelType}`;
-        }
-        if (eventType !== "" && eventType != undefined)
-        {
-            url += `&eventType=${eventType}`;
-        }
-        if (videoSyndicated !== "" && videoSyndicated != undefined)
-        {
-            url += `&videoSyndicated=${videoSyndicated}`;
-        }
-        if (videoType !== "" && videoType != undefined)
-        {
-            url += `&videoType=${videoType}`;
+            if (arguments[i] !== "" && arguments[i] != undefined)
+            {
+                url += `&${availableParameters[i]}=${arguments[i]}`
+            }
         }
         url += `&key=${this.apiKey}`;
         return url;
