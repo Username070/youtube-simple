@@ -378,28 +378,28 @@ class YouTubeAPI
     }
 
     /**
-     * @param {*} part - Specifies a comma-separated list of one or more search resource properties that the API response will include.
-     * @param {*} q - Specifies the query term to search for.
-     * @param {*} publishedAfter - [OPTIONAL] - Indicates that the API response should only contain resources created at or after the specified time.
-     * @param {*} publishedBefore - [OPTIONAL] - Indicates that the API response should only contain resources created before or at the specified time.
-     * @param {*} pageToken - [OPTIONAL] - Identifies a specific page in the result set that should be returned.
-     * @param {*} videoDuration - [OPTIONAL] - Filters video search results based on their duration.
-     * @param {*} maxResults - [OPTIONAL] - Specifies the maximum number of items that should be returned in the result set.
-     * @param {*} channelId - [OPTIONAL] - Indicates that the API response should only contain resources created by the channel.
-     * @param {*} channelType - [OPTIONAL] - Lets you restrict a search to a particular type of channel.
-     * @param {*} eventType - [OPTIONAL] - Restricts a search to broadcast events.
-     * @param {*} location - [OPTIONAL] - Restricts a search to videos that specify, in their metadata, a geographic location that falls within that area.
-     * @param {*} locationRadius - [OPTIONAL] - Defines a circular geographic area.
-     * @param {*} order - [OPTIONAL] - Specifies the method that will be used to order resources in the API response. The default value is relevance.
-     * @param {*} regionCode - [OPTIONAL] - Instructs the API to return search results for videos that can be viewed in the specified country.
-     * @param {*} safeSearch - [OPTIONAL] - Indicates whether the search results should include restricted content as well as standard content.
-     * @param {*} type - [OPTIONAL] - Restricts a search query to only retrieve a particular type of resource
-     * @param {*} videoCategoryId - [OPTIONAL] - Filters video search results based on their category.
-     * @param {*} videoDefinition - [OPTIONAL] - Lets you restrict a search to only include either high definition (HD) or standard definition (SD) videos.
-     * @param {*} videoDimension - [OPTIONAL] - Lets you restrict a search to only retrieve 2D or 3D videos.
-     * @param {*} videoEmbeddable - [OPTIONAL] - Lets you to restrict a search to only videos that can be embedded into a webpage.
-     * @param {*} videoSyndicated - [OPTIONAL] - Lets you to restrict a search to only videos that can be played outside youtube.com.
-     * @param {*} videoType - [OPTIONAL] - Lets you restrict a search to a particular type of videos.
+     * @param {string} part - Specifies a comma-separated list of one or more search resource properties that the API response will include.
+     * @param {string} q - Specifies the query term to search for.
+     * @param {string} [publishedAfter] - [OPTIONAL] - Indicates that the API response should only contain resources created at or after the specified time.
+     * @param {string} [publishedBefore] - [OPTIONAL] - Indicates that the API response should only contain resources created before or at the specified time.
+     * @param {string} [pageToken] - [OPTIONAL] - Identifies a specific page in the result set that should be returned.
+     * @param {string} [videoDuration] - [OPTIONAL] - Filters video search results based on their duration.
+     * @param {number} [maxResults] - [OPTIONAL] - Specifies the maximum number of items that should be returned in the result set.
+     * @param {string} [channelId] - [OPTIONAL] - Indicates that the API response should only contain resources created by the channel.
+     * @param {string} [channelType] - [OPTIONAL] - Lets you restrict a search to a particular type of channel.
+     * @param {string} [eventType] - [OPTIONAL] - Restricts a search to broadcast events.
+     * @param {string} [location] - [OPTIONAL] - Restricts a search to videos that specify, in their metadata, a geographic location that falls within that area.
+     * @param {string} [locationRadius] - [OPTIONAL] - Defines a circular geographic area.
+     * @param {string} [order] - [OPTIONAL] - Specifies the method that will be used to order resources in the API response. The default value is relevance.
+     * @param {string} [regionCode] - [OPTIONAL] - Instructs the API to return search results for videos that can be viewed in the specified country.
+     * @param {string} [safeSearch] - [OPTIONAL] - Indicates whether the search results should include restricted content as well as standard content.
+     * @param {string} [type] - [OPTIONAL] - Restricts a search query to only retrieve a particular type of resource
+     * @param {string} [videoCategoryId] - [OPTIONAL] - Filters video search results based on their category.
+     * @param {string} [videoDefinition] - [OPTIONAL] - Lets you restrict a search to only include either high definition (HD) or standard definition (SD) videos.
+     * @param {string} [videoDimension] - [OPTIONAL] - Lets you restrict a search to only retrieve 2D or 3D videos.
+     * @param {string} [videoEmbeddable] - [OPTIONAL] - Lets you to restrict a search to only videos that can be embedded into a webpage.
+     * @param {string} [videoSyndicated] - [OPTIONAL] - Lets you to restrict a search to only videos that can be played outside youtube.com.
+     * @param {string} [videoType] - [OPTIONAL] - Lets you restrict a search to a particular type of videos.
      */
     async SearchVideo(part, q, publishedAfter, publishedBefore, pageToken, videoDuration, maxResults, channelId,
         channelType, eventType, location, locationRadius, order, regionCode, safeSearch, type, videoCategoryId,
