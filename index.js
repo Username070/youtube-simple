@@ -1,6 +1,6 @@
-let YouTubeAPI = require("./YouTubeAPI");
+const YouTubeAPI = require("./YouTubeAPI");
 
-YouTubeAPI = new YouTubeAPI("AIzaSyCGoQWVmveNJMpphxHR2y2tn4O8K6PVXK4");
+const newRequest = new YouTubeAPI.YouTubeAPI("");
 
 // newRequest.getChannelsListByName("snippet", "QWERTY", "", 5, "") // Tested
 //     .then(function(data) {
@@ -22,7 +22,7 @@ YouTubeAPI = new YouTubeAPI("AIzaSyCGoQWVmveNJMpphxHR2y2tn4O8K6PVXK4");
 //         ]
 //       }
 
-// YouTubeAPI.getChannelsById("snippet", "UCUf53DHwoQw4SvETXZQ2Tmg") // Tested
+// newRequest.getChannelsListById("snippet", "UCUf53DHwoQw4SvETXZQ2Tmg") // Tested
 //     .then(function(data) {
 //         console.log(data);
 //     })

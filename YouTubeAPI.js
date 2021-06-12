@@ -17,7 +17,7 @@ class YouTubeAPI
     * @param {string} videoId - Specifies the YouTube video ID of the video for which the API should return caption tracks.
     * @param {string} [id] - [OPTIONAL] Specifies a comma-separated list of IDs that identify the caption resources that should be retrieved.
     */
-    async getCaptions(part, videoId, id)
+    async getCaptionsList(part, videoId, id)
     {
         if (id !== "" && id !== undefined)
         {
@@ -34,7 +34,7 @@ class YouTubeAPI
     * @param {number} [maxResults] - [OPTIONAL] Specifies the maximum number of items that should be returned in the result set.
     * @param {string} [pageToken] - [OPTIONAL] The pageToken parameter identifies a specific page in the result set that should be returned.
     */
-    async getChannelsById(part, id, hl, maxResults, pageToken)
+    async getChannelsListById(part, id, hl, maxResults, pageToken)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/channels?part=${part}&id=${id}`;
 
@@ -50,7 +50,7 @@ class YouTubeAPI
     * @param {number} [maxResults] - [OPTIONAL] Specifies the maximum number of items that should be returned in the result set.
     * @param {string} [pageToken] - [OPTIONAL] The pageToken parameter identifies a specific page in the result set that should be returned.
     */
-    async getChannelsByName(part, forUsername, hl, maxResults, pageToken)
+    async getChannelsListByName(part, forUsername, hl, maxResults, pageToken)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/channels?part=${part}&forUsername=${forUsername}`;
 
@@ -62,7 +62,7 @@ class YouTubeAPI
      * @param {string} part - Specifies a comma-separated list of one or more channelSection resource properties that the API response will include.
      * @param {string} channelId - Specifies a YouTube channel ID.
      */
-    async getChannelSectionsByChannelId(part, channelId)
+    async getChannelSectionsListByChannelId(part, channelId)
     {
         return (fetch(`https://youtube.googleapis.com/youtube/v3/channelSections?part=${part}&channelId=${channelId}&key=${this.apiKey}`).then((res) => res.json()));
     }
@@ -71,7 +71,7 @@ class YouTubeAPI
      * @param {string} part - Specifies a comma-separated list of one or more channelSection resource properties that the API response will include.
      * @param {string} id - Specifies a comma-separated list of IDs that uniquely identify the channelSection resources that are being retrieved.
      */
-    async getChannelSectionsById(part, id)
+    async getChannelSectionsListById(part, id)
     {
         return (fetch(`https://youtube.googleapis.com/youtube/v3/channelSections?part=${part}&id=${id}&key=${this.apiKey}`).then((res) => res.json()));
     }
@@ -82,7 +82,7 @@ class YouTubeAPI
      * @param {string} [pageToken] - [OPTIONAL] Identifies a specific page in the result set that should be returned.
      * @param {string} [textFormat] - [OPTIONAL] Indicates whether the API should return comments formatted as HTML or as plain text.
      */
-    async getCommentsById(part, id, maxResults, pageToken, textFormat)
+    async getCommentsListById(part, id, maxResults, pageToken, textFormat)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/comments?part=${part}&id=${id}`;
 
@@ -99,7 +99,7 @@ class YouTubeAPI
      * @param {string} [textFormat] - [OPTIONAL] Indicates whether the API should return comments formatted as HTML or as plain text.
      * @returns 
      */
-    async getCommentsByParentId(part, parentId, maxResults, pageToken, textFormat)
+    async getCommentsListByParentId(part, parentId, maxResults, pageToken, textFormat)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/comments?part=${part}&parentId=${parentId}`;
 
@@ -117,7 +117,7 @@ class YouTubeAPI
      * @param {string} [searchTerms] - [OPTIONAL] Instructs the API to limit the API response to only contain comments that contain the specified search terms.
      * @param {string} [textFormat] - [OPTIONAL] Indicates whether the API should return comments formatted as HTML or as plain text.
      */
-    async getCommentThreadsByTRTCI(part, allThreadsRelatedToChannelId, maxResults, order, pageToken, searchTerms, textFormat)
+    async getCommentThreadsListByTRTCI(part, allThreadsRelatedToChannelId, maxResults, order, pageToken, searchTerms, textFormat)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/commentThreads?part=${part}&allThreadsRelatedToChannelId=${allThreadsRelatedToChannelId}`;
     
@@ -135,7 +135,7 @@ class YouTubeAPI
      * @param {string} [searchTerms] - [OPTIONAL] Instructs the API to limit the API response to only contain comments that contain the specified search terms.
      * @param {string} [textFormat] - [OPTIONAL] Indicates whether the API should return comments formatted as HTML or as plain text.
      */
-    async getCommentThreadsByChannelId(part, channelId, maxResults, order, pageToken, searchTerms, textFormat)
+    async getCommentThreadsListByChannelId(part, channelId, maxResults, order, pageToken, searchTerms, textFormat)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/commentThreads?part=${part}&channelId=${channelId}`;
     
@@ -153,7 +153,7 @@ class YouTubeAPI
      * @param {string} [searchTerms] - [OPTIONAL] Instructs the API to limit the API response to only contain comments that contain the specified search terms.
      * @param {string} [textFormat] - [OPTIONAL] Instruct the API to return the comments left by users in html formatted or in plain text.
      */
-    async getCommentThreadsById(part, id, maxResults, order, pageToken, searchTerms, textFormat)
+    async getCommentThreadsListById(part, id, maxResults, order, pageToken, searchTerms, textFormat)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/commentThreads?part=${part}&id=${id}`;
     
@@ -172,7 +172,7 @@ class YouTubeAPI
      * @param {string} [searchTerms] - [OPTIONAL] Instructs the API to limit the API response to only contain comments that contain the specified search terms.
      * @param {string} [textFormat] - [OPTIONAL] Instruct the API to return the comments left by users in html formatted or in plain text.
      */
-    async getCommentThreadsByVideoId(part, videoId, maxResults, order, pageToken, searchTerms, textFormat)
+    async getCommentThreadsListByVideoId(part, videoId, maxResults, order, pageToken, searchTerms, textFormat)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/commentThreads?part=${part}&videoId=${videoId}`;
     
@@ -185,7 +185,7 @@ class YouTubeAPI
      * @param {string} part - Specifies the i18nLanguage resource properties that the API response will include.
      * @param {string} [hl] - [OPTIONAL] pecifies the language that should be used for text values in the API response.
      */
-    async GetI18nLanguages(part, hl)
+    async GetI18nLanguageslist(part, hl)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/i18nLanguages?part=${part}`;
     
@@ -198,7 +198,7 @@ class YouTubeAPI
      * @param {string} part - Specifies the i18nRegion resource properties that the API response will include.
      * @param {string} hl - Specifies the language that should be used for text values in the API response.
      */
-    async GetI18nRegions(part, hl)
+    async GetI18nRegionsList(part, hl)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/i18nRegions?part=${part}`;
     
@@ -214,7 +214,7 @@ class YouTubeAPI
      * @param {string} [pageToken] - [OPTIONAL] Identifies a specific page in the result set that should be returned.
      * @param {string} [videoId] - [OPTIONAL] Specifies that the request should return only the playlist items that contain the specified video.
      */
-    async getPlaylistItemsById(part, id, maxResults, pageToken, videoId)
+    async getPlaylistItemsListById(part, id, maxResults, pageToken, videoId)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=${part}&id=${id}`;
     
@@ -230,7 +230,7 @@ class YouTubeAPI
      * @param {string} [pageToken] - [OPTIONAL] Identifies a specific page in the result set that should be returned.
      * @param {string} [videoId] - [OPTIONAL] Specifies that the request should return only the playlist items that contain the specified video.
      */
-    async getPlaylistItemsByPlaylistId(part, playlistId, maxResults, pageToken, videoId)
+    async getPlaylistItemsListByPlaylistId(part, playlistId, maxResults, pageToken, videoId)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=${part}&playlistId=${playlistId}`;
     
@@ -246,7 +246,7 @@ class YouTubeAPI
      * @param {number} [maxResults] - [OPTIONAL] Specifies the maximum number of items that should be returned in the result set.
      * @param {string} [pageToken] - [OPTIONAL] Identifies a specific page in the result set that should be returned.
      */
-    async getPlaylistsByChannelId(part, channelId, hl, maxResults, pageToken)
+    async getPlaylistsListByChannelId(part, channelId, hl, maxResults, pageToken)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/playlists?part=${part}&channelId=${channelId}`;
     
@@ -262,7 +262,7 @@ class YouTubeAPI
      * @param {number} [maxResults] - [OPTIONAL] Specifies the maximum number of items that should be returned in the result set.
      * @param {string} [pageToken] - [OPTIONAL] Identifies a specific page in the result set that should be returned.
      */
-    async getPlaylistsById(part, id, hl, maxResults, pageToken)
+    async getPlaylistsListById(part, id, hl, maxResults, pageToken)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/playlists?part=${part}&id=${id}`;
     
@@ -279,7 +279,7 @@ class YouTubeAPI
      * @param {string} [order] - [OPTIONAL] Specifies the method that will be used to sort resources in the API response.
      * @param {string} [pageToken] - [OPTIONAL] Identifies a specific page in the result set that should be returned.
      */
-    async getSubscriptionsByChannelId(part, channelId, forChannelId, maxResults, order, pageToken)
+    async getSubscriptionsListByChannelId(part, channelId, forChannelId, maxResults, order, pageToken)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/subscriptions?part=${part}&channelId=${channelId}`;
     
@@ -298,7 +298,7 @@ class YouTubeAPI
      * @param {string} [order] - [OPTIONAL] Specifies the method that will be used to sort resources in the API response.
      * @param {string} [pageToken] - [OPTIONAL] Identifies a specific page in the result set that should be returned.
      */
-    async getSubscriptionsById(part, id, forChannelId, maxResults, order, pageToken)
+    async getSubscriptionsListById(part, id, forChannelId, maxResults, order, pageToken)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/subscriptions?part=${part}&id=${id}`;
     
@@ -312,7 +312,7 @@ class YouTubeAPI
      * @param {string} id - Specifies a comma-separated list of video category IDs for the resources that you are retrieving.
      * @param {string} [hl] - [OPTIONAL] Specifies the language that should be used for text values in the API response.
      */
-    async getVideoCategoriesById(part, id, hl)
+    async getVideoCategoriesListById(part, id, hl)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/videoCategories?part=${part}&id=${id}`;
     
@@ -328,7 +328,7 @@ class YouTubeAPI
      * @param {string} regionCode - Instructs the API to return the list of video categories available in the specified country.
      * @param {string} [hl] - [OPTIONAL] Specifies the language that should be used for text values in the API response.
      */
-    async getVideoCategoriesByRegionCode(part, regionCode, hl)
+    async getVideoCategoriesListByRegionCode(part, regionCode, hl)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/videoCategories?part=${part}&regionCode=${regionCode}`;
     
@@ -336,6 +336,11 @@ class YouTubeAPI
 
         return (fetch(url).then((res) => res.json()));
     }
+
+
+
+
+
 
     /**
      * @param {string} part - Specifies a comma-separated list of one or more video resource properties that the API response will include.
@@ -348,7 +353,7 @@ class YouTubeAPI
      * @param {string} [regionCode] - [OPTIONAL] Instructs the API to select a video chart available in the specified region.
      * @param {string} [videoCategoryId] - [OPTIONAL] Identifies the video category for which the chart should be retrieved.
      */
-    async getVideosByChart(part, chart, hl, maxResults, pageToken, maxHeight, maxWidth, regionCode, videoCategoryId)
+    async getVideosListByChart(part, chart, hl, maxResults, pageToken, maxHeight, maxWidth, regionCode, videoCategoryId)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/videos?part${part}&chart=${chart}`;
     
@@ -368,7 +373,7 @@ class YouTubeAPI
      * @param {string} [regionCode] - [OPTIONAL] Instructs the API to select a video chart available in the specified region.
      * @param {string} [videoCategoryId] - [OPTIONAL] Identifies the video category for which the chart should be retrieved.
      */
-    async getVideosById(part, id, hl, maxResults, pageToken, maxHeight, maxWidth, regionCode, videoCategoryId)
+    async getVideosListById(part, id, hl, maxResults, pageToken, maxHeight, maxWidth, regionCode, videoCategoryId)
     {
         let url = `https://youtube.googleapis.com/youtube/v3/videos?part${part}&id=${id}`;
     
@@ -401,7 +406,7 @@ class YouTubeAPI
      * @param {*} videoSyndicated - [OPTIONAL] - Lets you to restrict a search to only videos that can be played outside youtube.com.
      * @param {*} videoType - [OPTIONAL] - Lets you restrict a search to a particular type of videos.
      */
-    async SearchVideo(part, q, publishedAfter, publishedBefore, pageToken, videoDuration, maxResults, channelId,
+    async SearchVideoList(part, q, publishedAfter, publishedBefore, pageToken, videoDuration, maxResults, channelId,
         channelType, eventType, location, locationRadius, order, regionCode, safeSearch, type, videoCategoryId,
         videoDefinition, videoDimension, videoEmbeddable, videoSyndicated, videoType)
     {
@@ -431,4 +436,4 @@ class YouTubeAPI
     }
 }
 
-module.exports = YouTubeAPI;
+module.exports.YouTubeAPI = YouTubeAPI;
