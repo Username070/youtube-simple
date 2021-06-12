@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 
-let availableParameters = ["maxResults", "hl", "id", "pageToken", "textFormat", "order", "searchTerms",
-"videoId", "forChannelId", "maxHeight", "maxWidth", "regionCode", "videoCategoryId", "q",
+let availableParameters = ["url", "maxResults", "hl", "id", "pageToken", "textFormat", "order", "searchTerms",
+"videoId", "forChannelId", "maxHeight", "maxWidth", "regionCode", "videoCategoryId",
 "publishedAfter", "publishedBefore", "videoDuration", "channelId", "channelType",
 "eventType", "videoSyndicated", "videoType"]
 
@@ -405,10 +405,10 @@ class YouTubeAPI
         channelType, eventType, location, locationRadius, order, regionCode, safeSearch, type, videoCategoryId,
         videoDefinition, videoDimension, videoEmbeddable, videoSyndicated, videoType)
     {
-        let url = `https://www.googleapis.com/youtube/v3/search?part${part}&q=${q}`;
+        let url = `https://www.googleapis.com/youtube/v3/search?part=${part}&q=${q}`;
     
         url = this.generateLink(url, maxResults, "", "", pageToken, "", order, "", "", "", "", "", regionCode,
-        videoCategoryId, q, publishedAfter, publishedBefore, videoDuration, channelId, channelType, eventType,
+        videoCategoryId, publishedAfter, publishedBefore, videoDuration, channelId, channelType, eventType,
         location, locationRadius, safeSearch, type, videoDefinition, videoDimension, videoEmbeddable,
         videoSyndicated, videoType);
 
@@ -416,7 +416,7 @@ class YouTubeAPI
     }
 
     generateLink(url, maxResults, hl, id, pageToken, textFormat, order, searchTerms,
-        videoId, forChannelId, maxHeight, maxWidth, regionCode, videoCategoryId, q, publishedAfter, publishedBefore,
+        videoId, forChannelId, maxHeight, maxWidth, regionCode, videoCategoryId, publishedAfter, publishedBefore,
         videoDuration, channelId, channelType, eventType, videoSyndicated, videoType)
     {
         for (let i = 1; i <= 21; i++)
