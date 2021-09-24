@@ -1,3 +1,6 @@
+```diff
+- This package is no longer in the Node.js and i don't recommend using it because of it's terrible structure
+```
 # youtube-simple
 Simple YouTube API wrapper made in Node.js to help you interact with YouTube API.
 
