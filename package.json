@@ -20,7 +20,7 @@
   "author": "username070",
   "license": "ISC",
   "dependencies": {
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.7"
   },
   "bugs": {
     "url": "https://github.com/Username070/youtube-simple/issues"
